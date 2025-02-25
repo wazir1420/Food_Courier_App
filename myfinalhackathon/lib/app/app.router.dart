@@ -54,7 +54,7 @@ class StackedRouter extends _i1.RouterBase {
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.PartyView: (data) {
       return _i6.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i2.PartyView(),
+        builder: (context) => _i2.PartyView(),
         settings: data,
       );
     },

@@ -10,8 +10,7 @@ class SplashViewModel extends BaseViewModel {
       // ignore: use_build_context_synchronously
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const PartyView(),
+        pageBuilder: (context, animation, secondaryAnimation) => PartyView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
