@@ -19,6 +19,10 @@ class OnboardsViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void initialize() {
+    debugPrint("ViewModel initialized");
+  }
+
   void togglePasswordVisibility() {
     _isObscured = !_isObscured;
     notifyListeners();
@@ -31,14 +35,6 @@ class OnboardsViewModel extends BaseViewModel {
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
-      );
-
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Login successful!'),
-          backgroundColor: Colors.green,
-        ),
       );
 
       Navigator.pushReplacement(
@@ -73,29 +69,20 @@ class OnboardsViewModel extends BaseViewModel {
 
   Future<void> register(BuildContext context) async {
     try {
-      debugPrint("Attempting to register user...");
+      // ignore: unused_local_variable
       final UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      debugPrint("User registered: ${userCredential.user!.uid}");
 
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Registration successful!'),
-          backgroundColor: Colors.green,
-        ),
-      );
-
+      // Navigate to MapsView on successful registration
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => const MapsView()),
       );
     } on FirebaseAuthException catch (e) {
-      debugPrint("FirebaseAuthException: ${e.code} - ${e.message}");
       String errorMessage = 'Registration failed. Please try again.';
       if (e.code == 'weak-password') {
         errorMessage = 'The password is too weak.';
@@ -110,7 +97,6 @@ class OnboardsViewModel extends BaseViewModel {
         ),
       );
     } catch (e) {
-      debugPrint("Unexpected error: $e");
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -130,7 +116,7 @@ class OnboardsViewModel extends BaseViewModel {
       ),
       builder: (BuildContext context) {
         return ViewModelBuilder<OnboardsViewModel>.reactive(
-          viewModelBuilder: () => this,
+          viewModelBuilder: () => OnboardsViewModel(), // Create a new instance
           builder: (context, viewModel, child) {
             return Padding(
               padding: EdgeInsets.only(
@@ -214,15 +200,16 @@ class OnboardsViewModel extends BaseViewModel {
                     ),
                     const SizedBox(height: 20),
                     if (viewModel.isCreateAccount) ...[
-                      _buildLabeledTextField("Full Name"),
+                      viewModel._buildLabeledTextField("Full Name"),
                       const SizedBox(height: 10),
-                      _buildLabeledTextField("Email"),
+                      viewModel._buildLabeledTextField("Email"),
                       const SizedBox(height: 10),
-                      _buildLabeledTextField("Password", obscureText: true),
+                      viewModel._buildLabeledTextField("Password",
+                          obscureText: true),
                     ] else ...[
-                      _buildLabeledTextField("Email"),
+                      viewModel._buildLabeledTextField("Email"),
                       const SizedBox(height: 10),
-                      _buildLabeledTextField("Password",
+                      viewModel._buildLabeledTextField("Password",
                           obscureText: true, showForgotPassword: true),
                     ],
                     const SizedBox(height: 20),
@@ -302,5 +289,13 @@ class OnboardsViewModel extends BaseViewModel {
           ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+    super.dispose();
   }
 }

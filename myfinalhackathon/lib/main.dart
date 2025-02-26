@@ -1,7 +1,9 @@
+import 'package:finalhackathon/app/app.router.dart';
 import 'package:finalhackathon/view/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:finalhackathon/app/app.locator.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashView());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: StackedService.navigatorKey, // Attach NavigationService
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+    ); // Route generation);
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class OrderDetailView extends StatelessWidget {
-  const OrderDetailView({super.key});
+  OrderDetailView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class OrderDetailView extends StatelessWidget {
                   children: [
                     SizedBox(height: he * 0.03),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                      onTap: () => Navigator.pop(context),
                       child: Container(
                         height: 50,
                         width: 50,
@@ -33,7 +31,7 @@ class OrderDetailView extends StatelessWidget {
                           color: const Color.fromARGB(255, 245, 176, 199),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.red,
@@ -41,30 +39,21 @@ class OrderDetailView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       'Order Details',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 20),
-                    itemContainerWithQuantity(context, viewModel,
-                        image: 'assets/images/Menu1.png',
-                        name: 'Chicken Burger',
-                        company: 'Burger Factory LTD',
-                        price: '15'),
-                    SizedBox(height: 15),
-                    itemContainer(context,
-                        image: 'assets/images/Menu2.png',
-                        name: 'Onion Pizza',
-                        company: 'Pizza Palace',
-                        price: '15'),
-                    SizedBox(height: 15),
-                    itemContainer(context,
-                        image: 'assets/images/Menu3.png',
-                        name: 'Spicy Shawarma',
-                        company: 'Hot cool Spot',
-                        price: '15'),
+                    const SizedBox(height: 20),
+                    for (int i = 0; i < viewModel.orderItems.length; i++)
+                      Column(
+                        children: [
+                          _itemContainerWithQuantity(
+                              context, viewModel, viewModel.orderItems[i], i),
+                          const SizedBox(height: 15),
+                        ],
+                      ),
                     SizedBox(height: 50),
                     Container(
                       height: he * 0.27,
@@ -81,17 +70,11 @@ class OrderDetailView extends StatelessWidget {
                               children: [
                                 Text(
                                   'Sub-Total',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 ),
                                 Text(
                                   '\$${viewModel.subTotal.toStringAsFixed(2)}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 )
                               ],
                             ),
@@ -101,17 +84,11 @@ class OrderDetailView extends StatelessWidget {
                               children: [
                                 Text(
                                   'Delivery Charge',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 ),
                                 Text(
                                   '\$${viewModel.deliveryCharge.toStringAsFixed(2)}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 )
                               ],
                             ),
@@ -121,17 +98,11 @@ class OrderDetailView extends StatelessWidget {
                               children: [
                                 Text(
                                   'Discount',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 ),
                                 Text(
                                   '\$${viewModel.discount.toStringAsFixed(2)}',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: boldWhiteTextStyle,
                                 ),
                               ],
                             ),
@@ -141,24 +112,20 @@ class OrderDetailView extends StatelessWidget {
                               children: [
                                 Text(
                                   'Total',
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style:
+                                      boldWhiteTextStyle.copyWith(fontSize: 22),
                                 ),
                                 Text(
                                   '\$${viewModel.total.toStringAsFixed(2)}',
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style:
+                                      boldWhiteTextStyle.copyWith(fontSize: 22),
                                 ),
                               ],
                             ),
                             SizedBox(height: he * 0.01),
                             SizedBox(
                               width: double.infinity,
-                              height: he * 0.08,
+                              height: he * 0.085,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.symmetric(vertical: 16),
@@ -185,13 +152,41 @@ class OrderDetailView extends StatelessWidget {
                                     child: Text(
                                       'Place My Order',
                                       style: TextStyle(
-                                          fontSize: 17,
-                                          color: const Color(0xFFD61355)),
+                                        fontSize: 17,
+                                        color: Color(0xFFFF0000),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             )
+                            // SizedBox(
+                            //   width: double.infinity,
+                            //   height: he * 0.06,
+                            //   child: ElevatedButton(
+                            //     style: ElevatedButton.styleFrom(
+                            //       padding: EdgeInsets.symmetric(vertical: 16),
+                            //       shape: RoundedRectangleBorder(
+                            //         borderRadius: BorderRadius.circular(10),
+                            //       ),
+                            //       backgroundColor: Colors.white,
+                            //     ),
+                            //     onPressed: () {
+                            //       Navigator.pushReplacement(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //             builder: (context) =>
+                            //                 OrderCompleteView()),
+                            //       );
+                            //     },
+                            //     child: Text(
+                            //       'Place My Order',
+                            //       style: TextStyle(
+                            //           fontSize: 17,
+                            //           color: const Color(0xFFD61355)),
+                            //     ),
+                            //   ),
+                            // )
                           ],
                         ),
                       ),
@@ -205,170 +200,94 @@ class OrderDetailView extends StatelessWidget {
       },
     );
   }
-}
 
-Widget itemContainerWithQuantity(
-    BuildContext context, OrderDetailViewModel viewModel,
-    {required String image,
-    required String name,
-    required String company,
-    required String price}) {
-  return Stack(
-    children: [
-      Container(
-        height: MediaQuery.of(context).size.height * 0.12,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            SizedBox(width: 15),
-            Image.asset(image),
-            SizedBox(width: 15),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15),
-                Text(
-                  name,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text(company),
-                Text(
-                  '\$ $price',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFF0000)),
-                )
-              ],
-            ),
-            Spacer(),
-          ],
+  // Private method for item container
+  Widget _itemContainerWithQuantity(BuildContext context,
+      OrderDetailViewModel viewModel, OrderItem item, int index) {
+    return Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height * 0.12,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          child: Row(
+            children: [
+              SizedBox(width: 15),
+              Image.asset(item.image),
+              SizedBox(width: 15),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 15),
+                  Text(
+                    item.name,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text(item.company),
+                  Text(
+                    '\$ ${item.price.toStringAsFixed(2)}',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFF0000)),
+                  )
+                ],
+              ),
+              Spacer(),
+            ],
+          ),
         ),
-      ),
-      Positioned(
-        right: 10,
-        bottom: 20,
-        child: Row(
-          children: [
-            GestureDetector(
-              onTap: () => viewModel.decrementQuantity(),
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 233, 162, 186),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Icon(
-                    Icons.remove,
-                    color: Color(0xFFFF0000),
+        Positioned(
+          right: 10,
+          bottom: 20,
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () => viewModel.decrementQuantity(index),
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 233, 162, 186),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Icon(
+                      Icons.remove,
+                      color: Color(0xFFFF0000),
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(width: 5),
-            Text('${viewModel.quantity}', style: TextStyle(fontSize: 16)),
-            SizedBox(width: 5),
-            GestureDetector(
-              onTap: () => viewModel.incrementQuantity(),
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                    color: Color(0xFFFF0000),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
+              SizedBox(width: 5),
+              Text('${item.quantity}', style: TextStyle(fontSize: 16)),
+              SizedBox(width: 5),
+              GestureDetector(
+                onTap: () => viewModel.incrementQuantity(index),
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: Color(0xFFFF0000),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      )
-    ],
-  );
-}
+            ],
+          ),
+        )
+      ],
+    );
+  }
 
-// Widget for static item container (for other items)
-Widget itemContainer(BuildContext context,
-    {required String image,
-    required String name,
-    required String company,
-    required String price}) {
-  return Stack(
-    children: [
-      Container(
-        height: MediaQuery.of(context).size.height * 0.12,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            SizedBox(width: 15),
-            Image.asset(image),
-            SizedBox(width: 15),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15),
-                Text(
-                  name,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text(company),
-                Text(
-                  '\$ $price',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFF0000)),
-                )
-              ],
-            ),
-            SizedBox(width: 20),
-          ],
-        ),
-      ),
-      Positioned(
-        right: 10,
-        bottom: 40,
-        child: Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 233, 162, 186),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                child: Icon(
-                  Icons.remove,
-                  color: Color(0xFFFF0000),
-                ),
-              ),
-            ),
-            SizedBox(width: 5),
-            Text('1'),
-            SizedBox(width: 5),
-            Container(
-              height: 30,
-              width: 30,
-              decoration: BoxDecoration(
-                  color: Color(0xFFFF0000),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-      )
-    ],
+  // Reusable text style
+  final TextStyle boldWhiteTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
   );
 }

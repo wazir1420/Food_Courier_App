@@ -1,7 +1,10 @@
+import 'package:finalhackathon/app/app.locator.dart';
+import 'package:finalhackathon/app/app.router.dart';
 import 'package:finalhackathon/view/onboard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:finalhackathon/viewmodel/party_view_model.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class PartyView extends StatelessWidget {
   const PartyView({super.key});
@@ -63,10 +66,11 @@ class PartyView extends StatelessWidget {
                           shadowColor: Colors.transparent,
                         ),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OnboardView()));
+                          NavigationService().navigateTo(Routes.onboardView);
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => OnboardView()));
                         },
                         child: Ink(
                           decoration: BoxDecoration(

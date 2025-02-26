@@ -118,19 +118,22 @@ class HomeView extends StatelessWidget {
                               name: 'Burger',
                               color: Color(0xFFD61355),
                               bordercolor: Color(0xFFD61355),
-                              width: 0),
+                              width: 0,
+                              textColor: Colors.white),
                           customContainers(context,
                               image: 'assets/images/pizzas.png',
                               name: 'Pizza',
                               color: Colors.white,
                               bordercolor: Colors.amberAccent,
-                              width: 2),
+                              width: 2,
+                              textColor: Colors.black),
                           customContainers(context,
                               image: 'assets/images/sandwich.png',
                               name: 'Sandwich',
                               color: Colors.white,
                               bordercolor: Colors.amberAccent,
-                              width: 2)
+                              width: 2,
+                              textColor: Colors.black)
                         ],
                       ),
                     ),
@@ -481,7 +484,8 @@ Widget customContainers(BuildContext context,
     required String name,
     required Color color,
     required Color bordercolor,
-    required double width}) {
+    required double width,
+    required Color textColor}) {
   var we = MediaQuery.of(context).size.width;
   return Container(
     height: 50,
@@ -500,7 +504,7 @@ Widget customContainers(BuildContext context,
         Text(
           name,
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 22, fontWeight: FontWeight.bold, color: textColor),
         )
       ],
     ),
