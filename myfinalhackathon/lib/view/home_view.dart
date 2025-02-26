@@ -31,12 +31,15 @@ class HomeView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Icon(Icons.menu),
-                        Row(
-                          children: [
-                            Image.asset('assets/images/Frame.png'),
-                            const SizedBox(width: 5),
-                            Text(selectedAddress),
-                          ],
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/Frame.png'),
+                              const SizedBox(width: 5),
+                              Text(selectedAddress),
+                            ],
+                          ),
                         ),
                         const CircleAvatar(
                           radius: 20,
@@ -124,7 +127,7 @@ class HomeView extends StatelessWidget {
                               width: 2),
                           customContainers(context,
                               image: 'assets/images/sandwich.png',
-                              name: 'SandWich',
+                              name: 'Sandwich',
                               color: Colors.white,
                               bordercolor: Colors.amberAccent,
                               width: 2)
@@ -491,8 +494,8 @@ Widget customContainers(BuildContext context,
       children: [
         Image.asset(
           image,
-          height: 100,
-          width: 100,
+          height: 50,
+          width: 50,
         ),
         Text(
           name,

@@ -12,6 +12,9 @@ class OnboardsView extends StatelessWidget {
 
     return ViewModelBuilder<OnboardsViewModel>.reactive(
       viewModelBuilder: () => OnboardsViewModel(),
+      onViewModelReady: (viewModel) {
+        // Initialize the ViewModel if needed
+      },
       builder: (context, viewModel, child) {
         return Scaffold(
           body: Center(

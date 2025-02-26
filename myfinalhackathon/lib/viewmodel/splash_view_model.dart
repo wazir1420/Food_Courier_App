@@ -25,6 +25,7 @@ class SplashViewModel extends BaseViewModel {
             child: child,
           );
         },
+        transitionDuration: const Duration(milliseconds: 500),
       ),
     );
   }
