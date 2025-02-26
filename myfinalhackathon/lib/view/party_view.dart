@@ -1,6 +1,4 @@
-import 'package:finalhackathon/app/app.locator.dart';
 import 'package:finalhackathon/app/app.router.dart';
-import 'package:finalhackathon/view/onboard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:finalhackathon/viewmodel/party_view_model.dart';

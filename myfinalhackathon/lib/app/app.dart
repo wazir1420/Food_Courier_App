@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:finalhackathon/view/chat_with_api_view.dart';
 import 'package:finalhackathon/view/home_view.dart';
 import 'package:finalhackathon/view/onboard_view.dart';
