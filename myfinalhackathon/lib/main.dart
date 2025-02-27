@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:finalhackathon/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-Future<void> main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
