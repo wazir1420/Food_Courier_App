@@ -26,7 +26,7 @@ class PartyView extends StatelessWidget {
                     SizedBox(
                       height: he * 0.3,
                       child: Image.asset(
-                        'assets/images/red.pn',
+                        'assets/images/red.png',
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
