@@ -122,7 +122,7 @@ class OrderDetailView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: he * 0.02),
+                            SizedBox(height: he * 0.01),
                             SizedBox(
                               width: double.infinity,
                               height: he * 0.085,
