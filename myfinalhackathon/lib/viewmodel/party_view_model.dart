@@ -14,6 +14,6 @@ class PartyViewModel extends BaseViewModel {
 
   double getRotationAngle(int index, double scrollPosition) {
     final double itemPosition = index - scrollPosition;
-    return itemPosition * 0.2; // Adjust the multiplier for more/less rotation
+    return itemPosition * 0.2;
   }
 }
