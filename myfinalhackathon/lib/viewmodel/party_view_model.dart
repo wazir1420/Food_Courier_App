@@ -5,7 +5,7 @@ class PartyViewModel extends BaseViewModel {
   final PageController pageController = PageController();
 
   List<Map<String, String>> get pizzas => [
-        {'name': 'Pepperoni', 'image': 'assets/images/pepperoni.pn'},
+        {'name': 'Pepperoni', 'image': 'assets/images/pepperoni.png'},
         {'name': 'Chicken', 'image': 'assets/images/chickens.png'},
         {'name': 'Farmhouse', 'image': 'assets/images/framhouse.png'},
         {'name': 'Tomato', 'image': 'assets/images/tomato.png'},
