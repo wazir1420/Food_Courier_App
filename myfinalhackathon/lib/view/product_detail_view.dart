@@ -19,7 +19,7 @@ class ProductDetailView extends StatelessWidget {
                     SizedBox(
                       height: he * 0.4,
                       child: Image.asset(
-                        'assets/images/fullburger.pn',
+                        'assets/images/fullburger.png',
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
