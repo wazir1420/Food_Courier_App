@@ -19,7 +19,7 @@ class OrderItem {
 class OrderDetailViewModel extends BaseViewModel {
   final List<OrderItem> _orderItems = [
     OrderItem(
-      image: 'assets/images/Menu1.pn',
+      image: 'assets/images/Menu1.png',
       name: 'Chicken Burger',
       company: 'Burger Factory LTD',
       price: 15.0,
