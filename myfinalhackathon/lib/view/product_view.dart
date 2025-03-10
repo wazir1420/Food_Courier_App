@@ -1,15 +1,25 @@
-import 'package:finalhackathon/viewmodel/product_detail_view_model.dart';
+import 'package:finalhackathon/view/map_view.dart';
+import 'package:finalhackathon/viewmodel/product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class ProductDetailView extends StatelessWidget {
-  const ProductDetailView({super.key});
+class ProductView extends StatelessWidget {
+  final String image;
+  final String title;
+  final String description;
+
+  const ProductView(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
     var he = MediaQuery.of(context).size.height;
-    return ViewModelBuilder<ProductDetailViewModel>.reactive(
-        viewModelBuilder: () => ProductDetailViewModel(),
+
+    return ViewModelBuilder<ProductViewModel>.reactive(
+        viewModelBuilder: () => ProductViewModel(),
         builder: (context, child, viewModel) {
           return Scaffold(
             body: SingleChildScrollView(
@@ -19,7 +29,7 @@ class ProductDetailView extends StatelessWidget {
                     SizedBox(
                       height: he * 0.4,
                       child: Image.asset(
-                        'assets/images/fullburger.png',
+                        image,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
@@ -88,8 +98,16 @@ class ProductDetailView extends StatelessWidget {
                                           255, 246, 170, 196),
                                       shape: BoxShape.circle),
                                   child: Center(
-                                    child:
-                                        Image.asset('assets/images/Frame.png'),
+                                    child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MapsView()));
+                                        },
+                                        child: Image.asset(
+                                            'assets/images/Frame.png')),
                                   ),
                                 ),
                                 SizedBox(
@@ -115,7 +133,7 @@ class ProductDetailView extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'Chicken Burger',
+                          title,
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.bold),
                         ),
@@ -150,8 +168,7 @@ class ProductDetailView extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                            "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.Chicken Tomatoa Lettuse Preheat grill to medium-high heat and oil the grates. Form the mixture into 4-6 equal patties"),
+                        Text(description),
                         SizedBox(
                           height: 10,
                         ),

@@ -1,4 +1,8 @@
+import 'dart:collection';
+
 import 'package:finalhackathon/app/app.router.dart';
+import 'package:finalhackathon/view/home_view.dart';
+import 'package:finalhackathon/view/map_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:finalhackathon/app/app.locator.dart';
@@ -18,9 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: StackedService.navigatorKey,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-    );
+        debugShowCheckedModeBanner: false,
+        // navigatorKey: StackedService.navigatorKey,
+        // onGenerateRoute: StackedRouter().onGenerateRoute,
+        home: MapsView());
   }
 }

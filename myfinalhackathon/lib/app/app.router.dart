@@ -12,13 +12,12 @@ import 'package:finalhackathon/view/onboards_view.dart' as _i4;
 import 'package:finalhackathon/view/order_complete_view.dart' as _i9;
 import 'package:finalhackathon/view/order_detail_view.dart' as _i8;
 import 'package:finalhackathon/view/party_view.dart' as _i2;
-import 'package:finalhackathon/view/product_detail_view.dart' as _i10;
 import 'package:finalhackathon/view/profile_view.dart' as _i6;
-import 'package:finalhackathon/view/splash_view.dart' as _i11;
-import 'package:flutter/material.dart' as _i12;
+import 'package:finalhackathon/view/splash_view.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i13;
+import 'package:stacked_services/stacked_services.dart' as _i12;
 
 class Routes {
   static const partyView = '/party-view';
@@ -37,8 +36,6 @@ class Routes {
 
   static const orderCompleteView = '/order-complete-view';
 
-  static const productDetailView = '/product-detail-view';
-
   static const splashView = '/';
 
   static const all = <String>{
@@ -50,7 +47,6 @@ class Routes {
     chatbotScreen,
     orderDetailView,
     orderCompleteView,
-    productDetailView,
     splashView,
   };
 }
@@ -90,50 +86,46 @@ class StackedRouter extends _i1.RouterBase {
       page: _i9.OrderCompleteView,
     ),
     _i1.RouteDef(
-      Routes.productDetailView,
-      page: _i10.ProductDetailView,
-    ),
-    _i1.RouteDef(
       Routes.splashView,
-      page: _i11.SplashView,
+      page: _i10.SplashView,
     ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.PartyView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.PartyView(),
         settings: data,
       );
     },
     _i3.OnboardView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.OnboardView(),
         settings: data,
       );
     },
     _i4.OnboardsView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.OnboardsView(),
         settings: data,
       );
     },
     _i5.HomeView: (data) {
       final args = data.getArgs<HomeViewArguments>(nullOk: false);
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) =>
             _i5.HomeView(key: args.key, selectedAddress: args.selectedAddress),
         settings: data,
       );
     },
     _i6.ProfileView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ProfileView(),
         settings: data,
       );
     },
     _i7.ChatbotScreen: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.ChatbotScreen(),
         settings: data,
       );
@@ -142,26 +134,20 @@ class StackedRouter extends _i1.RouterBase {
       final args = data.getArgs<OrderDetailViewArguments>(
         orElse: () => const OrderDetailViewArguments(),
       );
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => _i8.OrderDetailView(key: args.key),
         settings: data,
       );
     },
     _i9.OrderCompleteView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.OrderCompleteView(),
         settings: data,
       );
     },
-    _i10.ProductDetailView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i10.ProductDetailView(),
-        settings: data,
-      );
-    },
-    _i11.SplashView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i11.SplashView(),
+    _i10.SplashView: (data) {
+      return _i11.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i10.SplashView(),
         settings: data,
       );
     },
@@ -180,7 +166,7 @@ class HomeViewArguments {
     required this.selectedAddress,
   });
 
-  final _i12.Key? key;
+  final _i11.Key? key;
 
   final String selectedAddress;
 
@@ -204,7 +190,7 @@ class HomeViewArguments {
 class OrderDetailViewArguments {
   const OrderDetailViewArguments({this.key});
 
-  final _i12.Key? key;
+  final _i11.Key? key;
 
   @override
   String toString() {
@@ -223,7 +209,7 @@ class OrderDetailViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i13.NavigationService {
+extension NavigatorStateExtension on _i12.NavigationService {
   Future<dynamic> navigateToPartyView([
     int? routerId,
     bool preventDuplicates = true,
@@ -267,7 +253,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> navigateToHomeView({
-    _i12.Key? key,
+    _i11.Key? key,
     required String selectedAddress,
     int? routerId,
     bool preventDuplicates = true,
@@ -313,7 +299,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> navigateToOrderDetailView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -336,20 +322,6 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.orderCompleteView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> navigateToProductDetailView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.productDetailView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -413,7 +385,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> replaceWithHomeView({
-    _i12.Key? key,
+    _i11.Key? key,
     required String selectedAddress,
     int? routerId,
     bool preventDuplicates = true,
@@ -459,7 +431,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> replaceWithOrderDetailView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -482,20 +454,6 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.orderCompleteView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
-  Future<dynamic> replaceWithProductDetailView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.productDetailView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

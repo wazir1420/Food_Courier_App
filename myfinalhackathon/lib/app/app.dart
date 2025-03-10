@@ -5,7 +5,6 @@ import 'package:finalhackathon/view/onboards_view.dart';
 import 'package:finalhackathon/view/order_complete_view.dart';
 import 'package:finalhackathon/view/order_detail_view.dart';
 import 'package:finalhackathon/view/party_view.dart';
-import 'package:finalhackathon/view/product_detail_view.dart';
 import 'package:finalhackathon/view/profile_view.dart';
 import 'package:finalhackathon/view/splash_view.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -20,7 +19,6 @@ import 'package:stacked_services/stacked_services.dart';
   MaterialRoute(page: ChatbotScreen),
   MaterialRoute(page: OrderDetailView),
   MaterialRoute(page: OrderCompleteView),
-  MaterialRoute(page: ProductDetailView),
   MaterialRoute(page: SplashView, initial: true)
 ], dependencies: [
   Singleton(classType: NavigationService),

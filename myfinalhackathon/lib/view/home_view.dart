@@ -1,6 +1,6 @@
 import 'package:finalhackathon/view/chat_with_api_view.dart';
 import 'package:finalhackathon/view/order_detail_view.dart';
-import 'package:finalhackathon/view/product_detail_view.dart';
+import 'package:finalhackathon/view/product_view.dart';
 import 'package:finalhackathon/view/profile_view.dart';
 import 'package:finalhackathon/viewmodel/home_view_model.dart';
 import 'package:flutter/material.dart';
@@ -150,8 +150,11 @@ class HomeView extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          ProductDetailView()));
+                                      builder: (context) => ProductView(
+                                          image: 'assets/images/fullburger.png',
+                                          title: 'Chicken Burger',
+                                          description:
+                                              "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.Chicken Tomatoa Lettuse Preheat grill to medium-high heat and oil the grates. Form the mixture into 4-6 equal patties")));
                             },
                             child: customContainer(context,
                                 image: 'assets/images/chicken.png',
@@ -160,18 +163,44 @@ class HomeView extends StatelessWidget {
                                 price: '20.00',
                                 ratting: '3.8'),
                           ),
-                          customContainer(context,
-                              image: 'assets/images/zinger.png',
-                              name: 'Cheese Burger',
-                              pcs: '100 gram chicken',
-                              price: '15.00',
-                              ratting: '4.5'),
-                          customContainer(context,
-                              image: 'assets/images/zing.png',
-                              name: 'Zinger Burger',
-                              pcs: '100 gram chicken',
-                              price: '25.00',
-                              ratting: '4.6'),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductView(
+                                          image:
+                                              'assets/images/cheese-burger.png',
+                                          title: 'Cheese Burger',
+                                          description:
+                                              "A cheeseburger is a hamburger topped with cheese. Traditionally, the slices of cheese is placed on top of the meat patty. The cheese is usually added to the cooking hamburger patty shortly before serving, which allows the cheese to melt. Cheeseburgers can include variations in structure, ingredients and composition. As with other hamburgers, a cheeseburger may include toppings such as lettuce, tomato, onion, pickles, bacon, mayonnaise, ketchup, and mustard.")));
+                            },
+                            child: customContainer(context,
+                                image: 'assets/images/zinger.png',
+                                name: 'Cheese Burger',
+                                pcs: '100 gram chicken',
+                                price: '15.00',
+                                ratting: '4.5'),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductView(
+                                          image:
+                                              'assets/images/zinger-burger.jpg',
+                                          title: 'Zinger Burger',
+                                          description:
+                                              "Arabi shawarma is renowned for its mouthwatering flavors and irresistible offerings, and their Mega Zinger Burger takes it to a whole new level. This delectable creation boasts not one, but two succulent zinger patties, making it a true treat for burger enthusiasts. With each bite, you are greeted with a burst of bold and savory flavors that perfectly blend together. The crispy texture of the zinger patties, combined with the freshness of the ingredients, creates an unforgettable experience for your taste buds. Whether you're a fan of Arabi shawarma or simply a burger lover, the Mega Zinger Burger is a must-try. Indulge in this ultimate burger delight and satisfy your cravings like never before.")));
+                            },
+                            child: customContainer(context,
+                                image: 'assets/images/zing.png',
+                                name: 'Zinger Burger',
+                                pcs: '100 gram chicken',
+                                price: '25.00',
+                                ratting: '4.6'),
+                          ),
                         ],
                       ),
                     ),
@@ -351,7 +380,6 @@ class HomeView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ChatbotScreen())).then((_) {
-                      // Reset the selected index when returning to the home screen
                       viewModel.resetSelectedIndex();
                     });
                   },
