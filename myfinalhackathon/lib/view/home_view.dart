@@ -114,7 +114,7 @@ class HomeView extends StatelessWidget {
                         spacing: 10,
                         children: [
                           customContainers(context,
-                              image: 'assets/images/burge.png',
+                              image: 'assets/images/burger.png',
                               name: 'Burger',
                               color: Color(0xFFD61355),
                               bordercolor: Color(0xFFD61355),
