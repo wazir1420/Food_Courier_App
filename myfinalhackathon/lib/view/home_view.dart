@@ -319,7 +319,6 @@ class HomeView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ProfileView())).then((_) {
-                      // Reset the selected index when returning to the home screen
                       viewModel.resetSelectedIndex();
                     });
                   },
@@ -349,7 +348,6 @@ class HomeView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => OrderDetailView())).then((_) {
-                      // Reset the selected index when returning to the home screen
                       viewModel.resetSelectedIndex();
                     });
                   },
@@ -432,6 +430,7 @@ Widget customContainer(BuildContext context,
     required String ratting}) {
   var he = MediaQuery.of(context).size.height;
   var we = MediaQuery.of(context).size.width;
+
   return Container(
     height: he * 0.32,
     width: we * 0.45,
