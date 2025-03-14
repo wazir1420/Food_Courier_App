@@ -42,7 +42,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {
       if (_socketService.isConnected()) {
-        _socketService.socket.emit('messag', _controller.text);
+        _socketService.socket.emit('message', _controller.text);
         setState(() {
           _socketService.addMessage('You: ${_controller.text}');
           _controller.text = '';
