@@ -83,7 +83,7 @@ class ProductView extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Center(
                                 child: Text(
-                                  'Popular',
+                                  'Popula',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ),
