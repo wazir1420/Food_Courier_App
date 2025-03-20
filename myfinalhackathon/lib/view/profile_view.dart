@@ -250,7 +250,7 @@ class ProfileView extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'wazirbalti1@gmail.com',
+                                  'wazirbalti1@gmail.co',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
