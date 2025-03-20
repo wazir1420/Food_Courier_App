@@ -107,7 +107,7 @@ class ProductView extends StatelessWidget {
                                                       MapsView()));
                                         },
                                         child: Image.asset(
-                                            'assets/images/Frame.png')),
+                                            'assets/images/Frame.pn')),
                                   ),
                                 ),
                                 SizedBox(
