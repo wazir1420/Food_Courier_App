@@ -97,7 +97,7 @@ class OrderDetailView extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Discoun',
+                                  'Discount',
                                   style: boldWhiteTextStyle,
                                 ),
                                 Text(
