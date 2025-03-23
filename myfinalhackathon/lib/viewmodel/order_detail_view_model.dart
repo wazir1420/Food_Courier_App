@@ -25,7 +25,7 @@ class OrderDetailViewModel extends BaseViewModel {
       price: 15.0,
     ),
     OrderItem(
-      image: 'assets/images/Menu2.png',
+      image: 'assets/images/Menu2.pn',
       name: 'Onion Pizza',
       company: 'Pizza Palace',
       price: 15.0,
