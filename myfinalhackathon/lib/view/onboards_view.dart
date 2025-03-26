@@ -24,7 +24,7 @@ class OnboardsView extends StatelessWidget {
               children: [
                 SizedBox(height: screenHeight * 0.15),
                 Image.asset(
-                  'assets/images/onboard2.pn',
+                  'assets/images/onboard2.png',
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: screenHeight * 0.05),
