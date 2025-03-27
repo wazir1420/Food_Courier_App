@@ -110,7 +110,7 @@ class OnboardView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Skip',
+                        'Ski',
                         style: TextStyle(fontSize: 17),
                       ),
                       SizedBox(
