@@ -10,7 +10,7 @@ class OrderCompleteView extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: Column(
-            children: [Image.asset('assets/images/finish.png')],
+            children: [Image.asset('assets/images/finish.pn')],
           ),
         ),
       ),
