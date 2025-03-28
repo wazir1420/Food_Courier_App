@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              Image.asset('assets/images/Frame.png'),
+                              Image.asset('assets/images/Frame.pn'),
                               const SizedBox(width: 5),
                               Text(selectedAddress),
                             ],
