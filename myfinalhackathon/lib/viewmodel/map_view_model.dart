@@ -105,7 +105,7 @@ class MapViewModel extends BaseViewModel {
   void _addMarker(LatLng position, String address) {
     _markers.add(
       Marker(
-        markerId: const MarkerId('current_location'),
+        markerId: const MarkerId('current_locatio'),
         position: position,
         draggable: true,
         infoWindow: InfoWindow(title: address),
