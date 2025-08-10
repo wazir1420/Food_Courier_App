@@ -12,7 +12,7 @@ class SocketService {
   }
 
   SocketService._internal() {
-    socket = IO.io('http://192.168.100.4:1000', <String, dynamic>{
+    socket = IO.io('http://192.168.18.221:1000', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': false,
     });
